@@ -1,40 +1,37 @@
 package Game;
 
-
 import java.util.Random;
 
-    /*
-     * Henning Wigforss
-     * Rola Abou Hachem
-     */
-
-
+/*
+ * Henning Wigforss
+ * Rola Abou Hachem
+ */
 public class GameBean {
+
     private int secretNumber;
     private int numberOfGuesses;
     private int lastGuess;
     private boolean gameFinished;
     private String response;
 
-    public GameBean(){
+    public GameBean() {
         this.secretNumber = generateNumber();
         this.numberOfGuesses = 0;
         this.gameFinished = false;
         this.response = "Start";
     }
 
-
     private int generateNumber() {
         Random rand = new Random();
         int sec = rand.nextInt(100);
         sec = sec + 1;
-       return sec;
+        return sec;
     }
 
     public void checkGuess(int guess) {
         this.lastGuess = guess;
-        
-        if(guess <1 || guess >100){
+
+        if (guess < 1 || guess > 100) {
             this.response = "Out of bounds";
             return;
         }
@@ -80,9 +77,9 @@ public class GameBean {
     public String getResponse() {
         return this.response;
     }
-    
-    public int getSecret(){
+
+    public int getSecret() {
         return this.secretNumber;
     }
-    
+
 }
